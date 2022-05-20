@@ -16,7 +16,7 @@ namespace AsyncNet
             try
             {
                 this.socket = socket;
-                AsyncPkg pkg=new AsyncPkg();
+                AsyncPkg pkg = new AsyncPkg();
                 socket.BeginReceive(
                     pkg.headBuff,
                     0,
@@ -36,12 +36,80 @@ namespace AsyncNet
                 OnConnected(result);
             }
         }
-        protected void RcvHeadData(IAsyncResult ar)
+        private void RcvHeadData(IAsyncResult ar)
         {
             try
             {
+                if (socket == null || socket.Connected == false)
+                {
+                    Utility.LogWarn("Socket is null or not connected");
+                    return;
+                }
+                int len = socket.EndReceive(ar);
+                AsyncPkg pkg = ar.AsyncState as AsyncPkg;
+                if (len == 0)//下线了
+                {
+                    Utility.LogWarn("远程连接正常下线");
+                    CloseSession();
+                    return;
+                }
+                else
+                {
+                    pkg.headIndex += len;
+                    if (pkg.headIndex < AsyncPkg.HeadLen)//数据未接收完全
+                    {
+                        socket.BeginReceive(
+                            pkg.headBuff,
+                            pkg.headIndex,
+                            AsyncPkg.HeadLen - pkg.headIndex,
+                            SocketFlags.None,
+                            new AsyncCallback(RcvHeadData),
+                            pkg
+                            );
+                    }
+                    else
+                    {
+                        pkg.InitBodyBuff();
+                        socket.BeginReceive(
+                            pkg.bodyBuff,
+                            0,
+                            pkg.bodyLen,
+                            SocketFlags.None,
+                            new AsyncCallback(RcvBodyData),
+                            pkg
+                            );
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Utility.LogWarn("RcvHeadWarn:{0}", e.Message);
+                CloseSession();
+            }
+        }
+        private void RcvBodyData(IAsyncResult ar)
+        {
+            try
+            {
+                if (socket == null || socket.Connected == false)
+                {
+                    Utility.LogWarn("Socket is null or not connected");
+                    return;
+                }
+                int len = socket.EndReceive(ar);
+                AsyncPkg pkg = ar.AsyncState as AsyncPkg;
+                if (len == 0)//下线了
+                {
+                    Utility.LogWarn("远程连接正常下线");
+                    CloseSession();
+                    return;
+                }
+                else
+                {
 
-            }catch(Exception e)
+                }
+            }
+            catch (Exception e)
             {
                 Utility.LogWarn("RcvHeadWarn:{0}", e.Message);
                 CloseSession();
