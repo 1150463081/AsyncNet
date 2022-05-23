@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsyncProtocol;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,19 @@ namespace AsyncNet
         {
             AsyncNetClient client = new AsyncNetClient();
             client.StartClient("127.0.0.1", 1997);
-            Console.ReadKey();
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (input == "quit")
+                {
+                    client.CloseClient();
+                    break;
+                }
+                else
+                {
+                    client.Session.SendMsg(new AsyncMsg() { Str = input });
+                }
+            }
         }
     }
 }

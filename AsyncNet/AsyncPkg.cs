@@ -26,7 +26,7 @@ namespace AsyncNet
         }
         public void Reset()
         {
-            headBuff = null;
+            headBuff = new byte[HeadLen];
             headIndex = 0;
             bodyBuff = null;
             bodyIndex = 0;

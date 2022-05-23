@@ -704,23 +704,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\lululu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNetExampleServer\\AsyncNetExampleServer.csproj",
+      "projectUniqueName": "D:\\VsProject\\AsyncNet\\AsyncNetExampleServer\\AsyncNetExampleServer.csproj",
       "projectName": "AsyncNetExampleServer",
-      "projectPath": "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNetExampleServer\\AsyncNetExampleServer.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNetExampleServer\\obj\\",
+      "projectPath": "D:\\VsProject\\AsyncNet\\AsyncNetExampleServer\\AsyncNetExampleServer.csproj",
+      "packagesPath": "C:\\Users\\lululu\\.nuget\\packages\\",
+      "outputPath": "D:\\VsProject\\AsyncNet\\AsyncNetExampleServer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lululu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -733,8 +729,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNet\\AsyncNet.csproj": {
-              "projectPath": "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNet\\AsyncNet.csproj"
+            "D:\\VsProject\\AsyncNet\\AsyncNet\\AsyncNet.csproj": {
+              "projectPath": "D:\\VsProject\\AsyncNet\\AsyncNet\\AsyncNet.csproj"
             }
           }
         }
@@ -749,16 +745,23 @@
       "netcoreapp2.1": {
         "dependencies": {
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

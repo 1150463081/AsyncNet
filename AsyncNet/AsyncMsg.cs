@@ -7,5 +7,6 @@ namespace AsyncProtocol
     [Serializable]
     public class AsyncMsg
     {
+        public string Str;
     }
 }

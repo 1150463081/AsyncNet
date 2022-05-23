@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Sockets;
+using AsyncProtocol;
 
 namespace AsyncNet
 {
@@ -9,13 +10,15 @@ namespace AsyncNet
     public class AsyncSession
     {
         private Socket socket;
+        private Action closeCB;
         public AsyncSessionState SessionState { get; protected set; } = AsyncSessionState.None;
-        public void InitSession(Socket socket)
+        public void InitSession(Socket socket,Action closeCB)
         {
             bool result = false;
             try
             {
                 this.socket = socket;
+                this.closeCB = closeCB;
                 AsyncPkg pkg = new AsyncPkg();
                 socket.BeginReceive(
                     pkg.headBuff,
@@ -116,6 +119,9 @@ namespace AsyncNet
                 else
                 {
                     //todo数据反序列化
+                    AsyncMsg msg = Utility.DeSerialize(pkg.bodyBuff);
+                    OnReceiveMsg(msg);
+
                     pkg.Reset();
                     socket.BeginReceive(
                         pkg.headBuff,
@@ -128,11 +134,16 @@ namespace AsyncNet
             }
             catch (Exception e)
             {
-                Utility.LogWarn("RcvHeadWarn:{0}", e.Message);
+                Utility.LogWarn("RcvBodyWarn:{0}", e.Message);
                 CloseSession();
             }
         }
 
+        public bool SendMsg(AsyncMsg msg)
+        {
+            byte[] data = Utility.PackLenInfo(Utility.Serialize(msg));
+            return SendMsg(data);
+        }
         public bool SendMsg(byte[] data)
         {
             bool result = false;
@@ -185,9 +196,32 @@ namespace AsyncNet
         {
             Utility.Log("Client Connect:{0}", result);
         }
+        private void OnReceiveMsg(AsyncMsg msg)
+        {
+            Utility.Log("RcvMsg:" + msg.Str);
+        }
+        private void OnDisConnected()
+        {
+            Utility.Log("DisConnected...");
+        }
         public void CloseSession()
         {
-
+            SessionState = AsyncSessionState.DisConnected;
+            OnDisConnected();
+            closeCB?.Invoke();
+            try
+            {
+                if (socket != null)
+                {
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Close();
+                    socket = null;
+                }
+            }
+            catch (Exception e)
+            {
+                Utility.LogError("Socket shut down error:{0}", e.Message);
+            }
         }
     }
     public enum AsyncSessionState

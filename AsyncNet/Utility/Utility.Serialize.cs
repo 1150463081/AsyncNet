@@ -10,8 +10,16 @@ namespace AsyncNet
 {
     public partial class Utility
     {
-
-        public byte[] Serialize(AsyncMsg msg)
+        public static byte[] PackLenInfo(byte[] data)
+        {
+            int len = data.Length;
+            byte[] bytes = new byte[len + AsyncPkg.HeadLen];
+            byte[] head = BitConverter.GetBytes(len);
+            head.CopyTo(bytes, 0);
+            data.CopyTo(bytes, 4);
+            return bytes;
+        }
+        public static byte[] Serialize(AsyncMsg msg)
         {
             byte[] data = null;
             MemoryStream ms = new MemoryStream();
@@ -32,7 +40,7 @@ namespace AsyncNet
             }
             return data;
         }
-        public AsyncMsg DeSerialize(byte[] data)
+        public static AsyncMsg DeSerialize(byte[] data)
         {
             AsyncMsg msg = null;
             MemoryStream ms = new MemoryStream(data);

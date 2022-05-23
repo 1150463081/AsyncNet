@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "28hvpDJaIXkQ41CRCXE7/fjWPQyqFyB6ogS+zSBeapHQ/VWZh1AbsiirhLS0A8lo8Eh+syUdvWVfDIK6XMJibQ==",
+  "success": true,
+  "projectFilePath": "D:\\VsProject\\AsyncNet\\AsyncNet\\AsyncNet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lululu\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\lululu\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

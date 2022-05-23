@@ -179,23 +179,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\lululu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNet\\AsyncNet.csproj",
+      "projectUniqueName": "D:\\VsProject\\AsyncNet\\AsyncNet\\AsyncNet.csproj",
       "projectName": "AsyncNet",
-      "projectPath": "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNet\\AsyncNet.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\UnityProject\\MoMoRpg\\AsyncNet\\AsyncNet\\AsyncNet\\obj\\",
+      "projectPath": "D:\\VsProject\\AsyncNet\\AsyncNet\\AsyncNet.csproj",
+      "packagesPath": "C:\\Users\\lululu\\.nuget\\packages\\",
+      "outputPath": "D:\\VsProject\\AsyncNet\\AsyncNet\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lululu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -227,10 +223,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,7 +9,7 @@ namespace AsyncNet
     public class AsyncNetServer
     {
         private Socket socket;
-        private List<AsyncSession> sessionList = new List<AsyncSession>();
+        public List<AsyncSession> sessionList { get; private set; } =new List<AsyncSession>();
         public int backlog = 10;
         public void StartServer(string ip, int port)
         {
@@ -31,6 +31,19 @@ namespace AsyncNet
                 Utility.LogError(e.Message);
             }
         }
+        public void CloseServer()
+        {
+            for (int i = 0; i < sessionList.Count; i++)
+            {
+                sessionList[i].CloseSession();
+            }
+            sessionList.Clear();
+            if (socket != null)
+            {
+                socket.Close();
+                socket = null;
+            }
+        }
         private void ClientConnectCB(IAsyncResult asyncResult)
         {
             AsyncSession session = new AsyncSession();
@@ -45,7 +58,22 @@ namespace AsyncNet
                     {
                         sessionList.Add(session);
                     }
-                    session.InitSession(clientSocket);
+                    session.InitSession(clientSocket,()=> {
+                        if (sessionList.Contains(session))
+                        {
+                            lock (sessionList)
+                            {
+                                if (sessionList.Remove(session))
+                                {
+                                    Utility.Log("Clear ServerSession Success");
+                                }
+                                else
+                                {
+                                    Utility.LogError("Clear ServerSession Fail");
+                                }
+                            }
+                        }
+                    });
                 }
                 //开始接收下一个新客户端的连接
                 socket.BeginAccept(new AsyncCallback(ClientConnectCB), null);

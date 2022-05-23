@@ -8,7 +8,7 @@ namespace AsyncNet
 {
     public class AsyncNetClient
     {
-        private AsyncSession session;
+        public AsyncSession Session { get; private set; }
         private Socket socket;
         public void StartClient(string ip, int port)
         {
@@ -24,15 +24,28 @@ namespace AsyncNet
                 Utility.LogError(e.Message);
             }
         }
+
+        public void CloseClient()
+        {
+            if (Session != null)
+            {
+                Session.CloseSession();
+                Session = null;
+            }
+            if (socket != null)
+            {
+                socket = null;
+            }
+        }
         private void ServerConnectCB(IAsyncResult ar)
         {
-            session = new AsyncSession();
+            Session = new AsyncSession();
             try
             {
                 socket.EndConnect(ar);
                 if (socket.Connected)
                 {
-                    session.InitSession(socket);
+                    Session.InitSession(socket,null);
                 }
             }
             catch (Exception e)
