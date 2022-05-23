@@ -53,32 +53,29 @@ namespace AsyncNet
                     CloseSession();
                     return;
                 }
+                pkg.headIndex += len;
+                if (pkg.headIndex < AsyncPkg.HeadLen)//数据未接收完全
+                {
+                    socket.BeginReceive(
+                        pkg.headBuff,
+                        pkg.headIndex,
+                        AsyncPkg.HeadLen - pkg.headIndex,
+                        SocketFlags.None,
+                        new AsyncCallback(RcvHeadData),
+                        pkg
+                        );
+                }
                 else
                 {
-                    pkg.headIndex += len;
-                    if (pkg.headIndex < AsyncPkg.HeadLen)//数据未接收完全
-                    {
-                        socket.BeginReceive(
-                            pkg.headBuff,
-                            pkg.headIndex,
-                            AsyncPkg.HeadLen - pkg.headIndex,
-                            SocketFlags.None,
-                            new AsyncCallback(RcvHeadData),
-                            pkg
-                            );
-                    }
-                    else
-                    {
-                        pkg.InitBodyBuff();
-                        socket.BeginReceive(
-                            pkg.bodyBuff,
-                            0,
-                            pkg.bodyLen,
-                            SocketFlags.None,
-                            new AsyncCallback(RcvBodyData),
-                            pkg
-                            );
-                    }
+                    pkg.InitBodyBuff();
+                    socket.BeginReceive(
+                        pkg.bodyBuff,
+                        0,
+                        pkg.bodyLen,
+                        SocketFlags.None,
+                        new AsyncCallback(RcvBodyData),
+                        pkg
+                        );
                 }
             }
             catch (Exception e)
@@ -104,15 +101,83 @@ namespace AsyncNet
                     CloseSession();
                     return;
                 }
+                pkg.bodyIndex += len;
+                if (pkg.bodyIndex < pkg.bodyLen)
+                {
+                    socket.BeginReceive(
+                        pkg.bodyBuff,
+                        pkg.bodyIndex,
+                        pkg.bodyLen - pkg.bodyIndex,
+                        SocketFlags.None,
+                        new AsyncCallback(RcvBodyData),
+                        pkg
+                        );
+                }
                 else
                 {
-
+                    //todo数据反序列化
+                    pkg.Reset();
+                    socket.BeginReceive(
+                        pkg.headBuff,
+                        0,
+                        AsyncPkg.HeadLen,
+                        SocketFlags.None,
+                        new AsyncCallback(RcvHeadData),
+                        pkg);
                 }
             }
             catch (Exception e)
             {
                 Utility.LogWarn("RcvHeadWarn:{0}", e.Message);
                 CloseSession();
+            }
+        }
+
+        public bool SendMsg(byte[] data)
+        {
+            bool result = false;
+            if (SessionState != AsyncSessionState.Connected)
+            {
+                Utility.LogWarn("Connection is DisConnected,can not send msg");
+            }
+            else
+            {
+                NetworkStream ns;
+                try
+                {
+                    ns = new NetworkStream(socket);
+                    if (ns.CanWrite)
+                    {
+                        ns.BeginWrite(
+                            data,
+                            0,
+                            data.Length,
+                            new AsyncCallback(SendCB),
+                            ns
+                            );
+                    }
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    Utility.LogError("SendMsgError:{0}", e.Message);
+                }
+            }
+            return result;
+        }
+
+        private void SendCB(IAsyncResult ar)
+        {
+            NetworkStream ns = (NetworkStream)ar.AsyncState;
+            try
+            {
+                ns.EndWrite(ar);
+                ns.Flush();
+                ns.Close();
+            }
+            catch (Exception e)
+            {
+                Utility.LogError("SendMsgError:{0}", e.Message);
             }
         }
 

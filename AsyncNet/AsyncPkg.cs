@@ -24,5 +24,12 @@ namespace AsyncNet
             bodyLen = BitConverter.ToInt32(headBuff, 0);
             bodyBuff = new byte[bodyLen];
         }
+        public void Reset()
+        {
+            headBuff = null;
+            headIndex = 0;
+            bodyBuff = null;
+            bodyIndex = 0;
+        }
     }
 }
