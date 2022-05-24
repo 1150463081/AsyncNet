@@ -1,2 +1,6 @@
 
 .vs/AsyncNet/v15/Server/sqlite3/db.lock
+AsyncNet/obj/Debug/netstandard2.0/AsyncNet.csproj.CoreCompileInputs.cache
+AsyncNetExampleServer/obj/Debug/netcoreapp2.1/AsyncNetExampleServer.assets.cache
+.vs/AsyncNet/v15/Server/sqlite3/storage.ide-wal
+AsyncNet/obj/Debug/netstandard2.0/AsyncNet.assets.cache
