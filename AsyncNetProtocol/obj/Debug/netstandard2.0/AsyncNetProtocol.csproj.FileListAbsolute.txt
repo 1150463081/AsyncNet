@@ -1,0 +1,9 @@
+D:\VsProject\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNetProtocol.deps.json
+D:\VsProject\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNetProtocol.dll
+D:\VsProject\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNetProtocol.pdb
+D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.csprojAssemblyReference.cache
+D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.AssemblyInfoInputs.cache
+D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.AssemblyInfo.cs
+D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.csproj.CoreCompileInputs.cache
+D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.dll
+D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.pdb

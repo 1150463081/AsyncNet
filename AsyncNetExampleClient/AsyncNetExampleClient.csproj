@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AsyncNetProtocol\AsyncNetProtocol.csproj">
+      <Project>{371c1e4c-c0c7-43d3-9221-87c33b58da5f}</Project>
+      <Name>AsyncNetProtocol</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AsyncNet\AsyncNet.csproj">
       <Project>{f745975f-549b-4434-b7b4-73a3f30035b5}</Project>
       <Name>AsyncNet</Name>

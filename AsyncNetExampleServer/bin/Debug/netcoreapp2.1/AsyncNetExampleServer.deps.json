@@ -15,8 +15,16 @@
         }
       },
       "AsyncNet/1.0.0": {
+        "dependencies": {
+          "AsyncNetProtocol": "1.0.0"
+        },
         "runtime": {
           "AsyncNet.dll": {}
+        }
+      },
+      "AsyncNetProtocol/1.0.0": {
+        "runtime": {
+          "AsyncNetProtocol.dll": {}
         }
       }
     }
@@ -28,6 +36,11 @@
       "sha512": ""
     },
     "AsyncNet/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AsyncNetProtocol/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

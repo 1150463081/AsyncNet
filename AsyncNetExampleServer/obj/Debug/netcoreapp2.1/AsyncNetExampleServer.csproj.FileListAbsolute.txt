@@ -27,3 +27,5 @@ D:\VsProject\AsyncNet\AsyncNetExampleServer\obj\Debug\netcoreapp2.1\AsyncNetExam
 D:\VsProject\AsyncNet\AsyncNetExampleServer\obj\Debug\netcoreapp2.1\AsyncNetExampleServer.dll
 D:\VsProject\AsyncNet\AsyncNetExampleServer\obj\Debug\netcoreapp2.1\AsyncNetExampleServer.pdb
 D:\VsProject\AsyncNet\AsyncNetExampleServer\obj\Debug\netcoreapp2.1\AsyncNetExampleServer.genruntimeconfig.cache
+D:\VsProject\AsyncNet\AsyncNetExampleServer\bin\Debug\netcoreapp2.1\AsyncNetProtocol.dll
+D:\VsProject\AsyncNet\AsyncNetExampleServer\bin\Debug\netcoreapp2.1\AsyncNetProtocol.pdb

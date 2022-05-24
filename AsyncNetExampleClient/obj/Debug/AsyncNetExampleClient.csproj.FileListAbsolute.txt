@@ -44,3 +44,5 @@ D:\VsProject\AsyncNet\AsyncNetExampleClient\obj\Debug\AsyncNetExampleClient.cspr
 D:\VsProject\AsyncNet\AsyncNetExampleClient\obj\Debug\AsyncNetExampleClient.csproj.CopyComplete
 D:\VsProject\AsyncNet\AsyncNetExampleClient\obj\Debug\AsyncNetExampleClient.exe
 D:\VsProject\AsyncNet\AsyncNetExampleClient\obj\Debug\AsyncNetExampleClient.pdb
+D:\VsProject\AsyncNet\AsyncNetExampleClient\bin\Debug\AsyncNetProtocol.dll
+D:\VsProject\AsyncNet\AsyncNetExampleClient\bin\Debug\AsyncNetProtocol.pdb

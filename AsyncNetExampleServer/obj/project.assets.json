@@ -217,6 +217,19 @@
         "runtime": {
           "bin/placeholder/AsyncNet.dll": {}
         }
+      },
+      "AsyncNetProtocol/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "AsyncNet": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AsyncNetProtocol.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AsyncNetProtocol.dll": {}
+        }
       }
     }
   },
@@ -695,11 +708,17 @@
       "type": "project",
       "path": "../AsyncNet/AsyncNet.csproj",
       "msbuildProject": "../AsyncNet/AsyncNet.csproj"
+    },
+    "AsyncNetProtocol/1.0.0": {
+      "type": "project",
+      "path": "../AsyncNetProtocol/AsyncNetProtocol.csproj",
+      "msbuildProject": "../AsyncNetProtocol/AsyncNetProtocol.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "AsyncNet >= 1.0.0",
+      "AsyncNetProtocol >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -729,6 +748,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "D:\\VsProject\\AsyncNet\\AsyncNetProtocol\\AsyncNetProtocol.csproj": {
+              "projectPath": "D:\\VsProject\\AsyncNet\\AsyncNetProtocol\\AsyncNetProtocol.csproj"
+            },
             "D:\\VsProject\\AsyncNet\\AsyncNet\\AsyncNet.csproj": {
               "projectPath": "D:\\VsProject\\AsyncNet\\AsyncNet\\AsyncNet.csproj"
             }

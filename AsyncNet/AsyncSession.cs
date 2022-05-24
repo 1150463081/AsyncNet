@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Sockets;
-using AsyncProtocol;
 
 namespace AsyncNet
 {

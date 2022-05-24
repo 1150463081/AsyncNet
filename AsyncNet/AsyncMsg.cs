@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AsyncProtocol
+namespace AsyncNet
 {
-    [Serializable]
-    public class AsyncMsg
+    public abstract class AsyncMsg
     {
-        public string Str;
     }
 }

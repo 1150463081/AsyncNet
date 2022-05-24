@@ -16,3 +16,6 @@ D:\VsProject\AsyncNet\AsyncNet\obj\Debug\netstandard2.0\AsyncNet.AssemblyInfo.cs
 D:\VsProject\AsyncNet\AsyncNet\obj\Debug\netstandard2.0\AsyncNet.csproj.CoreCompileInputs.cache
 D:\VsProject\AsyncNet\AsyncNet\obj\Debug\netstandard2.0\AsyncNet.dll
 D:\VsProject\AsyncNet\AsyncNet\obj\Debug\netstandard2.0\AsyncNet.pdb
+D:\VsProject\AsyncNet\AsyncNet\bin\Debug\netstandard2.0\AsyncNetProtocol.dll
+D:\VsProject\AsyncNet\AsyncNet\bin\Debug\netstandard2.0\AsyncNetProtocol.pdb
+D:\VsProject\AsyncNet\AsyncNet\obj\Debug\netstandard2.0\AsyncNet.csproj.CopyComplete

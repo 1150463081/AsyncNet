@@ -1,4 +1,4 @@
-﻿using AsyncProtocol;
+﻿using AsyncNetProtocol;
 using System;
 
 namespace AsyncNet
@@ -7,8 +7,8 @@ namespace AsyncNet
     {
         static void Main(string[] args)
         {
-            AsyncNetServer server = new AsyncNetServer();
-            server.StartServer("127.0.0.1", 1997);
+            AsyncNet server = new AsyncNet();
+            server.StartAsServer("127.0.0.1", 1997);
             while (true)
             {
                 string input = Console.ReadLine();
@@ -19,7 +19,7 @@ namespace AsyncNet
                 }
                 else
                 {
-                    AsyncMsg msg = new AsyncMsg() { Str = input };
+                    AsyncMsg msg = new NetMsg() { Str = input };
                     byte[] data = Utility.PackLenInfo(Utility.Serialize(msg));
                     for (int i = 0; i < server.sessionList.Count; i++)
                     {

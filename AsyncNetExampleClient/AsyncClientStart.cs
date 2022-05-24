@@ -1,4 +1,4 @@
-﻿using AsyncProtocol;
+﻿using AsyncNetProtocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +11,8 @@ namespace AsyncNet
     {
         static void Main(string[] args)
         {
-            AsyncNetClient client = new AsyncNetClient();
-            client.StartClient("127.0.0.1", 1997);
+            AsyncNet client = new AsyncNet();
+            client.StartAsClient("127.0.0.1", 1997);
             while (true)
             {
                 string input = Console.ReadLine();
@@ -23,7 +23,7 @@ namespace AsyncNet
                 }
                 else
                 {
-                    client.Session.SendMsg(new AsyncMsg() { Str = input });
+                    client.Session.SendMsg(new NetMsg() { Str = input });
                 }
             }
         }
