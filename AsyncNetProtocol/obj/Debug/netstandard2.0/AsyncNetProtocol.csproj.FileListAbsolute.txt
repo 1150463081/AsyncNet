@@ -7,3 +7,15 @@ D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol
 D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.csproj.CoreCompileInputs.cache
 D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.dll
 D:\VsProject\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.pdb
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNetProtocol.deps.json
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNetProtocol.dll
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNetProtocol.pdb
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNet.dll
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\bin\Debug\netstandard2.0\AsyncNet.pdb
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.csprojAssemblyReference.cache
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.csproj.CoreCompileInputs.cache
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.AssemblyInfoInputs.cache
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.AssemblyInfo.cs
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.csproj.CopyComplete
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.dll
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetProtocol\obj\Debug\netstandard2.0\AsyncNetProtocol.pdb

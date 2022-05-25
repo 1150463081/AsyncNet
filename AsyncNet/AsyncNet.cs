@@ -5,11 +5,13 @@ using System.Collections.Generic;
 
 namespace AsyncNet
 {
-    public class AsyncNet
+    public class AsyncNet<T,K>
+        where T:AsyncSession<K>,new()
+        where K:AsyncMsg,new()
     {
-        public AsyncSession Session { get; private set; }
+        public T Session { get; private set; }
         private Socket socket;
-        public List<AsyncSession> sessionList { get; private set; } = new List<AsyncSession>();
+        public List<T> sessionList { get; private set; } = new List<T>();
         public int backlog = 10;
         #region Client
         public void StartAsClient(string ip, int port)
@@ -41,7 +43,7 @@ namespace AsyncNet
         }
         private void ServerConnectCB(IAsyncResult ar)
         {
-            Session = new AsyncSession();
+            Session = new T();
             try
             {
                 socket.EndConnect(ar);
@@ -92,7 +94,7 @@ namespace AsyncNet
         }
         private void ClientConnectCB(IAsyncResult asyncResult)
         {
-            AsyncSession session = new AsyncSession();
+            T session = new T();
             try
             {
                 //结束一次连接

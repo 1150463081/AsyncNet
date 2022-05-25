@@ -46,3 +46,5 @@ D:\VsProject\AsyncNet\AsyncNetExampleClient\obj\Debug\AsyncNetExampleClient.exe
 D:\VsProject\AsyncNet\AsyncNetExampleClient\obj\Debug\AsyncNetExampleClient.pdb
 D:\VsProject\AsyncNet\AsyncNetExampleClient\bin\Debug\AsyncNetProtocol.dll
 D:\VsProject\AsyncNet\AsyncNetExampleClient\bin\Debug\AsyncNetProtocol.pdb
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetExampleClient\bin\Debug\AsyncNetProtocol.dll
+E:\UnityProject\MoMoRpg\AsyncNet\AsyncNet\AsyncNetExampleClient\bin\Debug\AsyncNetProtocol.pdb

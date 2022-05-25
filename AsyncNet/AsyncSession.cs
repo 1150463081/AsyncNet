@@ -6,7 +6,8 @@ using System.Net.Sockets;
 namespace AsyncNet
 {
     //网络会话
-    public class AsyncSession
+    public abstract class AsyncSession<T>
+        where T:AsyncMsg,new ()
     {
         private Socket socket;
         private Action closeCB;
@@ -118,7 +119,7 @@ namespace AsyncNet
                 else
                 {
                     //todo数据反序列化
-                    AsyncMsg msg = Utility.DeSerialize(pkg.bodyBuff);
+                    T msg = Utility.DeSerialize<T>(pkg.bodyBuff);
                     OnReceiveMsg(msg);
 
                     pkg.Reset();
@@ -191,18 +192,10 @@ namespace AsyncNet
             }
         }
 
-        private void OnConnected(bool result)
-        {
-            Utility.Log("Client Connect:{0}", result);
-        }
-        private void OnReceiveMsg(AsyncMsg msg)
-        {
-            Utility.Log("RcvMsg:" + msg.Str);
-        }
-        private void OnDisConnected()
-        {
-            Utility.Log("DisConnected...");
-        }
+        protected abstract void OnConnected(bool result);
+        protected abstract void OnReceiveMsg(T msg);
+        protected abstract void OnDisConnected();
+
         public void CloseSession()
         {
             SessionState = AsyncSessionState.DisConnected;

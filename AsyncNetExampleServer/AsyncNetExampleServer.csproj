@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AsyncNetProtocol\AsyncNetProtocol.csproj" />
     <ProjectReference Include="..\AsyncNet\AsyncNet.csproj" />
   </ItemGroup>
 

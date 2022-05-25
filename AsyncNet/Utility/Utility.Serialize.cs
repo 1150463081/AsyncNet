@@ -39,14 +39,15 @@ namespace AsyncNet
             }
             return data;
         }
-        public static AsyncMsg DeSerialize(byte[] data)
+        public static T DeSerialize<T>(byte[] data)
+            where T : AsyncMsg, new()
         {
-            AsyncMsg msg = null;
+            T msg = null;
             MemoryStream ms = new MemoryStream(data);
             BinaryFormatter bf = new BinaryFormatter();
             try
             {
-                msg= bf.Deserialize(ms) as AsyncMsg;
+                msg= bf.Deserialize(ms) as T;
             }
             catch (SerializationException e)
             {

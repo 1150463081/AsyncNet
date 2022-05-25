@@ -7,7 +7,7 @@ namespace AsyncNet
     {
         static void Main(string[] args)
         {
-            AsyncNet server = new AsyncNet();
+            AsyncNet<ServerSession, NetMsg> server = new AsyncNet<ServerSession, NetMsg>();
             server.StartAsServer("127.0.0.1", 1997);
             while (true)
             {

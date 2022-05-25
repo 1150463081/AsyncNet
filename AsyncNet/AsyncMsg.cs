@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AsyncNet
 {
+    [Serializable]
     public abstract class AsyncMsg
     {
     }
